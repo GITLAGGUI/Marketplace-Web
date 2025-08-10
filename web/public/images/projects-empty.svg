@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="400" viewBox="0 0 1200 400" role="img" aria-label="Empty state illustration for projects">
+  <defs>
+    <linearGradient id="g" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0%" stop-color="#0ea5e9"/>
+      <stop offset="100%" stop-color="#22d3ee"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="400" fill="#0b1220"/>
+  <g transform="translate(300,80)">
+    <rect width="600" height="240" rx="24" fill="#0f172a" stroke="#16324a"/>
+    <rect x="40" y="40" width="160" height="120" rx="16" fill="url(#g)" opacity="0.18"/>
+    <rect x="220" y="56" width="280" height="20" rx="10" fill="#1f2937"/>
+    <rect x="220" y="88" width="220" height="14" rx="7" fill="#1f2937"/>
+    <rect x="40" y="180" width="520" height="32" rx="10" fill="#0ea5e9" opacity="0.14"/>
+  </g>
+</svg>

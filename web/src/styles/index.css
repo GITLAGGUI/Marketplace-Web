@@ -1,0 +1,36 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --aurora-1: #0ea5e9;
+  --aurora-2: #06b6d4;
+  --aurora-3: #22d3ee;
+}
+
+/* Global aesthetics */
+html, body, #root { height: 100%; }
+body { font-feature-settings: "liga" 1, "kern" 1; }
+
+.bg-aurora {
+  position: fixed;
+  inset: -10% -10% auto -10%;
+  height: 60vh;
+  pointer-events: none;
+  filter: blur(40px) saturate(1.2);
+  z-index: -1;
+}
+
+.bg-aurora::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: conic-gradient(from 180deg at 50% 50%, var(--aurora-1), var(--aurora-2), var(--aurora-3), var(--aurora-1));
+  opacity: 0.18;
+}
+
+.glass {
+  background: linear-gradient(180deg, rgba(255,255,255,0.08), rgba(255,255,255,0.02));
+  border: 1px solid rgba(255,255,255,0.12);
+  backdrop-filter: blur(12px);
+}

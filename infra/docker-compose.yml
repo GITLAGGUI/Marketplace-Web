@@ -1,0 +1,44 @@
+version: "3.9"
+services:
+  db:
+    image: postgres:16
+    environment:
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_USER: postgres
+      POSTGRES_DB: app
+    ports:
+      - "5432:5432"
+    volumes:
+      - dbdata:/var/lib/postgresql/data
+  redis:
+    image: redis:7
+    ports:
+      - "6379:6379"
+  api:
+    build: ../services/api
+    ports:
+      - "8080:8080"
+    env_file: ../.env.example
+    environment:
+      - DATABASE_URL=postgresql+psycopg://postgres:postgres@db:5432/app
+      - REDIS_URL=redis://redis:6379/0
+  ai-agent:
+    build: ../services/ai-agent
+    ports:
+      - "8081:8081"
+    env_file: ../.env.example
+  media:
+    build: ../services/media-service
+    ports:
+      - "8082:8082"
+    env_file: ../.env.example
+  web:
+    build: ../web
+    ports:
+      - "5173:5173"
+    environment:
+      - VITE_API_BASE_URL=http://localhost:8080
+      - VITE_AI_AGENT_URL=http://localhost:8081
+      - VITE_MEDIA_SERVICE_URL=http://localhost:8082
+volumes:
+  dbdata:

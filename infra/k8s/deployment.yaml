@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: webapp-api
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: webapp-api
+  template:
+    metadata:
+      labels:
+        app: webapp-api
+    spec:
+      containers:
+        - name: api
+          image: yourrepo/webapp-api:latest
+          ports:
+            - containerPort: 8080
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: webapp-api-svc
+spec:
+  selector:
+    app: webapp-api
+  ports:
+    - port: 80
+      targetPort: 8080

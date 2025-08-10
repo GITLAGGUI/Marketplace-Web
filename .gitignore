@@ -1,0 +1,22 @@
+# Node
+web/node_modules/
+web/.npmrc
+web/.vite/
+web/dist/
+
+# Python
+**/__pycache__/
+**/*.pyc
+.venv/
+.env
+.env.*
+
+# OS / Editor
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+
+# Build artifacts
+coverage/
+.pytest_cache/
